@@ -14,6 +14,10 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^25.2.3",
+    "@types/node": "^12.20.55",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "apexcharts": "^3.35.5",
     "framer-motion": "^7.10.2",
     "react": "^18.2.0",
@@ -25,7 +29,8 @@
     "react-scripts": "5.0.1",
     "react-table": "^7.8.0",
     "tailwindcss-rtl": "^0.9.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "typescript": "^4.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -57,6 +62,9 @@
     "postcss": "^8.4.16",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.2.1",
-    "tailwindcss": "^3.1.8"
+    "tailwindcss": "^3.1.8",
+    "@types/react-calendar": "^3.5.2",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-table": "^7.7.12"
   }
 }
