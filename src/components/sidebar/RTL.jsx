@@ -4,7 +4,7 @@ import { HiX } from "react-icons/hi";
 import Links from "./components/Links";
 
 import SidebarCard from "components/sidebar/components/SidebarCard";
-import routes from "routes.js";
+import routes from "routes";
 
 const Sidebar = ({ open, onClose }) => {
   return (

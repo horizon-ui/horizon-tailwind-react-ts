@@ -3,10 +3,9 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "components/navbar/RTL";
 import Sidebar from "components/sidebar/RTL";
 import Footer from "components/footer/Footer";
-import routes from "routes.js";
+import routes from "routes";
 
-export default function RTL(props) {
-  const { ...rest } = props;
+export default function RTL() {
   const location = useLocation();
   const [open, setOpen] = React.useState(true);
   const [currentRoute, setCurrentRoute] = React.useState("Main Dashboard");
@@ -20,7 +19,7 @@ export default function RTL(props) {
     getActiveRoute(routes);
   }, [location.pathname]);
 
-  const getActiveRoute = (routes) => {
+  const getActiveRoute = (routes: RoutesType[]): string | boolean => {
     let activeRoute = "RTL";
     for (let i = 0; i < routes.length; i++) {
       if (
@@ -33,7 +32,7 @@ export default function RTL(props) {
     }
     return activeRoute;
   };
-  const getActiveNavbar = (routes) => {
+  const getActiveNavbar = (routes: RoutesType[]): string | boolean => {
     let activeNavbar = false;
     for (let i = 0; i < routes.length; i++) {
       if (
@@ -44,7 +43,7 @@ export default function RTL(props) {
     }
     return activeNavbar;
   };
-  const getRoutes = (routes) => {
+  const getRoutes = (routes: RoutesType[]): any => {
     return routes.map((prop, key) => {
       if (prop.layout === "/rtl") {
         return (
@@ -73,7 +72,6 @@ export default function RTL(props) {
               logoText={"Horizon UI Tailwind React"}
               brandText={currentRoute}
               secondary={getActiveNavbar(routes)}
-              {...rest}
             />
             <div className="pt-5s mx-auto mb-auto h-full min-h-[84vh] p-2 md:pr-2">
               <Routes>

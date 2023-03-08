@@ -1,4 +1,9 @@
-function Card(props) {
+function Card(props: {
+  variant?: string;
+  extra?: string;
+  children?: JSX.Element;
+  [x: string]: any;
+}) {
   const { variant, extra, children, ...rest } = props;
   return (
     <div

@@ -2,7 +2,16 @@ import { IoHeart, IoHeartOutline } from "react-icons/io5";
 import { useState } from "react";
 import Card from "components/card";
 
-const NftCard = ({ title, author, price, image, bidders, extra }) => {
+const NftCard = (props: {
+  image: string;
+  title: string;
+  author: string;
+  bidders: string[];
+  download: string;
+  price: string | number;
+  extra: string;
+}) => {
+  const { title, author, price, image, bidders, extra } = props;
   const [heart, setHeart] = useState(true);
   return (
     <Card
@@ -65,10 +74,7 @@ const NftCard = ({ title, author, price, image, bidders, extra }) => {
               Current Bid: {price} <span>ETH</span>
             </p>
           </div>
-          <button
-            href=""
-            className="linear rounded-[20px] bg-brand-900 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90"
-          >
+          <button className="linear rounded-[20px] bg-brand-900 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90">
             Place Bid
           </button>
         </div>

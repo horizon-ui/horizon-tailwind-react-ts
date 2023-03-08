@@ -6,15 +6,15 @@ import { FiSettings } from "react-icons/fi";
 import { AiOutlineShop } from "react-icons/ai";
 import { TiLightbulb } from "react-icons/ti";
 
-function CardMenu(props) {
+function CardMenu(props: { transparent: boolean }) {
   const { transparent } = props;
   const [open, setOpen] = React.useState(false);
   return (
     <Dropdown
+      open={open}
       button={
         <button
           onClick={() => setOpen(!open)}
-          open={open}
           className={`flex items-center text-xl hover:cursor-pointer ${
             transparent
               ? "bg-none text-white hover:bg-none active:bg-none"
