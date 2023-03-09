@@ -2,7 +2,7 @@ const SearchIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      class="mx-3 my-[12px] h-5 w-5 cursor-pointer text-navy-700"
+      className="mx-3 my-[12px] h-5 w-5 cursor-pointer text-navy-700"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"

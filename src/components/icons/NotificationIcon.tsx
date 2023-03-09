@@ -1,6 +1,6 @@
 const NotificationIcon = () => {
   return (
-    <span class="cursor-pointer">
+    <span className="cursor-pointer">
       <svg
         width="12"
         height="18"

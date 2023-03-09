@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
-import Chart from 'react-apexcharts';
+import React from "react";
+import Chart from "react-apexcharts";
 
-class BarChart extends Component {
-  constructor(props) {
+type ChartProps = {
+  // using `interface` is also ok
+  [x: string]: any;
+};
+type ChartState = {
+  chartData: any[];
+  chartOptions: any;
+};
+
+class ColumnChart extends React.Component<ChartProps, ChartState> {
+  constructor(props: { chartData: any[]; chartOptions: any }) {
     super(props);
     this.state = {
       chartData: [],
@@ -30,4 +39,4 @@ class BarChart extends Component {
   }
 }
 
-export default BarChart;
+export default ColumnChart;

@@ -39,8 +39,8 @@ const TotalSpent = () => {
         </div>
         <div className="h-full w-full">
           <LineChart
-            options={lineChartOptionsTotalSpent}
-            series={lineChartDataTotalSpent}
+            chartOptions={lineChartOptionsTotalSpent}
+            chartData={lineChartDataTotalSpent}
           />
         </div>
       </div>

@@ -1,6 +1,6 @@
 const ThemsIcon = () => {
   return (
-    <span class="cursor-pointer">
+    <span className="cursor-pointer">
       <svg
         width="16"
         height="20"

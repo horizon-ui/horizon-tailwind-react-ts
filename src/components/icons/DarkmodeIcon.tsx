@@ -1,6 +1,6 @@
 const DarkmodeIcon = () => {
   return (
-    <span class="cursor-pointer">
+    <span className="cursor-pointer">
       <svg
         width="18"
         height="18"

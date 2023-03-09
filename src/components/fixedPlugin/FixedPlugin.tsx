@@ -3,7 +3,7 @@
 import React from "react";
 
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
-export default function FixedPlugin(props) {
+export default function FixedPlugin(props: { [s: string]: any }) {
   const { ...rest } = props;
   const [darkmode, setDarkmode] = React.useState(
     document.body.classList.contains("dark")

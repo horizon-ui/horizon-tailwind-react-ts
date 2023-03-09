@@ -11,7 +11,6 @@ function CardMenu(props: { transparent: boolean }) {
   const [open, setOpen] = React.useState(false);
   return (
     <Dropdown
-      open={open}
       button={
         <button
           onClick={() => setOpen(!open)}

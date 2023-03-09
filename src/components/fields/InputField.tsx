@@ -1,7 +1,16 @@
 // Custom components
 import React from "react";
 
-function InputField(props) {
+function InputField(props: {
+  id: string;
+  label: string;
+  extra: string;
+  placeholder: string;
+  variant: string;
+  state: string;
+  disabled: boolean;
+  type: string;
+}) {
   const { label, id, extra, type, placeholder, variant, state, disabled } =
     props;
 

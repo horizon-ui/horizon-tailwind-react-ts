@@ -1,4 +1,4 @@
-const Progress = (props) => {
+const Progress = (props: { value: number; color?: string; width?: string }) => {
   const { value, color, width } = props;
   return (
     <div

@@ -1,11 +1,12 @@
 import React from "react";
 
-function useOutsideAlerter(ref, setX) {
+function useOutsideAlerter(ref: any, setX: any): void {
   React.useEffect(() => {
     /**
      * Alert if clicked on outside of element
      */
-    function handleClickOutside(event) {
+    // function handleClickOutside(event: React.MouseEvent<HTMLElement>) {
+    function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
         setX(false);
       }
@@ -19,7 +20,12 @@ function useOutsideAlerter(ref, setX) {
   }, [ref, setX]);
 }
 
-const Dropdown = (props) => {
+const Dropdown = (props: {
+  button: JSX.Element;
+  children: JSX.Element;
+  classNames: string;
+  animation?: string;
+}) => {
   const { button, children, classNames, animation } = props;
   const wrapperRef = React.useRef(null);
   const [openWrapper, setOpenWrapper] = React.useState(false);

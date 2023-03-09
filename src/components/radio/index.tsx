@@ -1,4 +1,9 @@
-const Radio = (props) => {
+const Radio = (props: {
+  extra?: string;
+  color?: string;
+  id: string;
+  [x: string]: any;
+}) => {
   const { color, id, name, ...rest } = props;
   return (
     <input

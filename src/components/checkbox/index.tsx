@@ -1,4 +1,8 @@
-const Checkbox = (props) => {
+const Checkbox = (props: {
+  extra?: string;
+  color?: string;
+  [x: string]: any;
+}) => {
   const { extra, color, ...rest } = props;
   return (
     <input
