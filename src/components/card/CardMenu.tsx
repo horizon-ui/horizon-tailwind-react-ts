@@ -6,7 +6,7 @@ import { FiSettings } from "react-icons/fi";
 import { AiOutlineShop } from "react-icons/ai";
 import { TiLightbulb } from "react-icons/ti";
 
-function CardMenu(props: { transparent: boolean }) {
+function CardMenu(props: { transparent?: boolean }) {
   const { transparent } = props;
   const [open, setOpen] = React.useState(false);
   return (

@@ -1,7 +1,7 @@
 function Card(props: {
   variant?: string;
   extra?: string;
-  children?: JSX.Element;
+  children?: JSX.Element | JSX.Element[];
   [x: string]: any;
 }) {
   const { variant, extra, children, ...rest } = props;
