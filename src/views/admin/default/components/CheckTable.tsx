@@ -36,7 +36,7 @@ function CheckTable(props: { tableData: any }) {
             colorScheme="brandScheme"
             me="10px"
           />
-          <p className="text-sm font-bold text-navy-700 dark:text-white">
+          <p className="ml-3 text-sm font-bold text-navy-700 dark:text-white">
             {info.getValue()[0]}
           </p>
         </div>
@@ -106,16 +106,16 @@ function CheckTable(props: { tableData: any }) {
         <table className="w-full">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
+              <tr key={headerGroup.id} className="!border-px !border-gray-400">
                 {headerGroup.headers.map((header) => {
                   return (
                     <th
                       key={header.id}
                       colSpan={header.colSpan}
                       onClick={header.column.getToggleSortingHandler()}
-                      className="cursor-pointer pr-2.5"
+                      className="cursor-pointer border-b-[1px] border-gray-200 pt-4 pb-2 pr-4 text-start"
                     >
-                      <div className="items-center justify-between text-xs text-gray-400">
+                      <div className="items-center justify-between text-xs text-gray-200">
                         {flexRender(
                           header.column.columnDef.header,
                           header.getContext()
@@ -142,7 +142,7 @@ function CheckTable(props: { tableData: any }) {
                       return (
                         <td
                           key={cell.id}
-                          className="min-w-[150px] border-white/0"
+                          className="min-w-[150px] border-white/0 py-3  pr-4"
                         >
                           {flexRender(
                             cell.column.columnDef.cell,
