@@ -1,8 +1,10 @@
 import React from "react";
 import CardMenu from "components/card/CardMenu";
+import { DiApple } from "react-icons/di";
+import { DiAndroid } from "react-icons/di";
+import { DiWindows } from "react-icons/di";
 import Card from "components/card";
 import Progress from "components/progress";
-import { MdCancel, MdCheckCircle, MdOutlineError } from "react-icons/md";
 
 import {
   createColumnHelper,
@@ -15,15 +17,12 @@ import {
 
 type RowObj = {
   name: string;
-  status: string;
+  tech: any;
   date: string;
   progress: number;
 };
 
-const columnHelper = createColumnHelper<RowObj>();
-
-// const columns = columnsDataCheck;
-export default function ComplexTable(props: { tableData: any }) {
+function CheckTable(props: { tableData: any }) {
   const { tableData } = props;
   const [sorting, setSorting] = React.useState<SortingState>([]);
   let defaultData = tableData;
@@ -39,26 +38,57 @@ export default function ComplexTable(props: { tableData: any }) {
         </p>
       ),
     }),
-    columnHelper.accessor("status", {
-      id: "status",
+    columnHelper.accessor("tech", {
+      id: "tech",
+      header: () => (
+        <p className="text-sm font-bold text-gray-600 dark:text-white">TECH</p>
+      ),
+      cell: (info: any) => (
+        <div className="flex items-center gap-2">
+          {info.getValue().map((item: string, key: number) => {
+            if (item === "apple") {
+              return (
+                <div
+                  key={key}
+                  className="text-[22px] text-gray-600 dark:text-white"
+                >
+                  <DiApple />
+                </div>
+              );
+            } else if (item === "android") {
+              return (
+                <div
+                  key={key}
+                  className="text-[21px] text-gray-600 dark:text-white"
+                >
+                  <DiAndroid />
+                </div>
+              );
+            } else if (item === "windows") {
+              return (
+                <div
+                  key={key}
+                  className="text-xl text-gray-600 dark:text-white"
+                >
+                  <DiWindows />
+                </div>
+              );
+            } else return null;
+          })}
+        </div>
+      ),
+    }),
+    columnHelper.accessor("progress", {
+      id: "progress",
       header: () => (
         <p className="text-sm font-bold text-gray-600 dark:text-white">
-          STATUS
+          PROGRESS
         </p>
       ),
       cell: (info) => (
-        <div className="flex items-center">
-          {info.getValue() === "Approved" ? (
-            <MdCheckCircle className="text-green-500 me-1 dark:text-green-300" />
-          ) : info.getValue() === "Disable" ? (
-            <MdCancel className="text-red-500 me-1 dark:text-red-300" />
-          ) : info.getValue() === "Error" ? (
-            <MdOutlineError className="text-amber-500 me-1 dark:text-amber-300" />
-          ) : null}
-          <p className="text-sm font-bold text-navy-700 dark:text-white">
-            {info.getValue()}
-          </p>
-        </div>
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {info.getValue()}
+        </p>
       ),
     }),
     columnHelper.accessor("date", {
@@ -73,15 +103,18 @@ export default function ComplexTable(props: { tableData: any }) {
       ),
     }),
     columnHelper.accessor("progress", {
-      id: "progress",
+      id: "quantity",
       header: () => (
         <p className="text-sm font-bold text-gray-600 dark:text-white">
-          PROGRESS
+          QUANTITY
         </p>
       ),
       cell: (info) => (
-        <div className="flex items-center">
-          <Progress width="w-[108px]" value={info.getValue()} />
+        <div className="flex items-center gap-3">
+          <p className="text-sm font-bold text-navy-700 dark:text-white">
+            {info.getValue()}%
+          </p>
+          <Progress width="w-[68px]" value={info.getValue()} />
         </div>
       ),
     }),
@@ -99,13 +132,14 @@ export default function ComplexTable(props: { tableData: any }) {
     debugTable: true,
   });
   return (
-    <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
-      <div className="relative flex items-center justify-between pt-4">
+    <Card extra={"w-full h-full sm:overflow-auto px-6"}>
+      <header className="relative flex items-center justify-between pt-4">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Complex Table
+          Check Table
         </div>
+
         <CardMenu />
-      </div>
+      </header>
 
       <div className="mt-8 overflow-x-scroll xl:overflow-x-hidden">
         <table className="w-full">
@@ -165,3 +199,6 @@ export default function ComplexTable(props: { tableData: any }) {
     </Card>
   );
 }
+
+export default CheckTable;
+const columnHelper = createColumnHelper<RowObj>();

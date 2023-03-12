@@ -1,8 +1,6 @@
 import React from "react";
 import CardMenu from "components/card/CardMenu";
 import Card from "components/card";
-import Progress from "components/progress";
-import { MdCancel, MdCheckCircle, MdOutlineError } from "react-icons/md";
 
 import {
   createColumnHelper,
@@ -14,16 +12,13 @@ import {
 } from "@tanstack/react-table";
 
 type RowObj = {
-  name: string;
-  status: string;
+  name: [string, boolean];
+  progress: string;
+  quantity: number;
   date: string;
-  progress: number;
 };
 
-const columnHelper = createColumnHelper<RowObj>();
-
-// const columns = columnsDataCheck;
-export default function ComplexTable(props: { tableData: any }) {
+function ColumnsTable(props: { tableData: any }) {
   const { tableData } = props;
   const [sorting, setSorting] = React.useState<SortingState>([]);
   let defaultData = tableData;
@@ -33,40 +28,7 @@ export default function ComplexTable(props: { tableData: any }) {
       header: () => (
         <p className="text-sm font-bold text-gray-600 dark:text-white">NAME</p>
       ),
-      cell: (info) => (
-        <p className="text-sm font-bold text-navy-700 dark:text-white">
-          {info.getValue()}
-        </p>
-      ),
-    }),
-    columnHelper.accessor("status", {
-      id: "status",
-      header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">
-          STATUS
-        </p>
-      ),
-      cell: (info) => (
-        <div className="flex items-center">
-          {info.getValue() === "Approved" ? (
-            <MdCheckCircle className="text-green-500 me-1 dark:text-green-300" />
-          ) : info.getValue() === "Disable" ? (
-            <MdCancel className="text-red-500 me-1 dark:text-red-300" />
-          ) : info.getValue() === "Error" ? (
-            <MdOutlineError className="text-amber-500 me-1 dark:text-amber-300" />
-          ) : null}
-          <p className="text-sm font-bold text-navy-700 dark:text-white">
-            {info.getValue()}
-          </p>
-        </div>
-      ),
-    }),
-    columnHelper.accessor("date", {
-      id: "date",
-      header: () => (
-        <p className="text-sm font-bold text-gray-600 dark:text-white">DATE</p>
-      ),
-      cell: (info) => (
+      cell: (info: any) => (
         <p className="text-sm font-bold text-navy-700 dark:text-white">
           {info.getValue()}
         </p>
@@ -80,9 +42,33 @@ export default function ComplexTable(props: { tableData: any }) {
         </p>
       ),
       cell: (info) => (
-        <div className="flex items-center">
-          <Progress width="w-[108px]" value={info.getValue()} />
-        </div>
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {info.getValue()}
+        </p>
+      ),
+    }),
+    columnHelper.accessor("quantity", {
+      id: "quantity",
+      header: () => (
+        <p className="text-sm font-bold text-gray-600 dark:text-white">
+          QUANTITY
+        </p>
+      ),
+      cell: (info) => (
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {info.getValue()}
+        </p>
+      ),
+    }),
+    columnHelper.accessor("date", {
+      id: "date",
+      header: () => (
+        <p className="text-sm font-bold text-gray-600 dark:text-white">DATE</p>
+      ),
+      cell: (info) => (
+        <p className="text-sm font-bold text-navy-700 dark:text-white">
+          {info.getValue()}
+        </p>
       ),
     }),
   ]; // eslint-disable-next-line
@@ -99,13 +85,13 @@ export default function ComplexTable(props: { tableData: any }) {
     debugTable: true,
   });
   return (
-    <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
-      <div className="relative flex items-center justify-between pt-4">
+    <Card extra={"w-full pb-10 p-4 h-full"}>
+      <header className="relative flex items-center justify-between">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Complex Table
+          4-Columns Table
         </div>
         <CardMenu />
-      </div>
+      </header>
 
       <div className="mt-8 overflow-x-scroll xl:overflow-x-hidden">
         <table className="w-full">
@@ -165,3 +151,6 @@ export default function ComplexTable(props: { tableData: any }) {
     </Card>
   );
 }
+
+export default ColumnsTable;
+const columnHelper = createColumnHelper<RowObj>();
