@@ -6,15 +6,13 @@ import { IoMdHome } from "react-icons/io";
 import { IoDocuments } from "react-icons/io5";
 import { MdBarChart, MdDashboard } from "react-icons/md";
 
-import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
-
 import Widget from "views/rtl/default/components/Widget";
 import CheckTable from "views/rtl/default/components/CheckTable";
 import ComplexTable from "views/rtl/default/components/ComplexTable";
 import DailyTraffic from "views/rtl/default/components/DailyTraffic";
 import TaskCard from "views/rtl/default/components/TaskCard";
-import tableDataCheck from "./variables/tableDataCheck.json";
-import tableDataComplex from "./variables/tableDataComplex.json";
+import tableDataCheck from "./variables/tableDataCheck";
+import tableDataComplex from "./variables/tableDataComplex";
 
 const Dashboard = () => {
   return (
@@ -66,10 +64,7 @@ const Dashboard = () => {
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
         {/* Check Table */}
         <div>
-          <CheckTable
-            columnsData={columnsDataCheck}
-            tableData={tableDataCheck}
-          />
+          <CheckTable tableData={tableDataCheck} />
         </div>
 
         {/* Traffic chart & Pie Chart */}
@@ -81,10 +76,7 @@ const Dashboard = () => {
 
         {/* Complex Table , Task & Calendar */}
 
-        <ComplexTable
-          columnsData={columnsDataComplex}
-          tableData={tableDataComplex}
-        />
+        <ComplexTable tableData={tableDataComplex} />
 
         {/* Task chart & Calendar */}
 

@@ -8,8 +8,7 @@ import avatar1 from "assets/img/avatars/avatar1.png";
 import avatar2 from "assets/img/avatars/avatar2.png";
 import avatar3 from "assets/img/avatars/avatar3.png";
 
-import tableDataTopCreators from "views/admin/marketplace/variables/tableDataTopCreators.json";
-import { tableColumnsTopCreators } from "views/admin/marketplace/variables/tableColumnsTopCreators";
+import tableDataTopCreators from "views/admin/marketplace/variables/tableDataTopCreators";
 import HistoryCard from "./components/HistoryCard";
 import TopCreatorTable from "./components/TableTopCreators";
 import NftCard from "components/card/NftCard";
@@ -123,11 +122,8 @@ const Marketplace = () => {
       {/* right side section */}
 
       <div className="col-span-1 h-full w-full rounded-xl 2xl:col-span-1">
-        <TopCreatorTable
-          extra="mb-5"
-          tableData={tableDataTopCreators}
-          columnsData={tableColumnsTopCreators}
-        />
+        <TopCreatorTable tableData={tableDataTopCreators} />
+        <div className="mb-5" />
         <HistoryCard />
       </div>
     </div>

@@ -7,9 +7,9 @@ const NftCard = (props: {
   title: string;
   author: string;
   bidders: string[];
-  download: string;
+  download?: string;
   price: string | number;
-  extra: string;
+  extra?: string;
 }) => {
   const { title, author, price, image, bidders, extra } = props;
   const [heart, setHeart] = useState(true);
