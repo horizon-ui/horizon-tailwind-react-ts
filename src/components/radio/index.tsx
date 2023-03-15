@@ -1,6 +1,20 @@
 const Radio = (props: {
   extra?: string;
-  color?: string;
+  ccolor?:
+    | "red"
+    | "blue"
+    | "green"
+    | "yellow"
+    | "orange"
+    | "teal"
+    | "navy"
+    | "lime"
+    | "cyan"
+    | "pink"
+    | "purple"
+    | "amber"
+    | "indigo"
+    | "gray";
   id: string;
   [x: string]: any;
 }) => {

@@ -1,4 +1,22 @@
-const Progress = (props: { value: number; color?: string; width?: string }) => {
+const Progress = (props: {
+  value: number;
+  ccolor?:
+    | "red"
+    | "blue"
+    | "green"
+    | "yellow"
+    | "orange"
+    | "teal"
+    | "navy"
+    | "lime"
+    | "cyan"
+    | "pink"
+    | "purple"
+    | "amber"
+    | "indigo"
+    | "gray";
+  width?: string;
+}) => {
   const { value, color, width } = props;
   return (
     <div
