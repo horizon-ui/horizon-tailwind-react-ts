@@ -1,6 +1,6 @@
 const Checkbox = (props: {
   extra?: string;
-  ccolor?:
+  color?:
     | "red"
     | "blue"
     | "green"

@@ -1,6 +1,6 @@
 const Radio = (props: {
   extra?: string;
-  ccolor?:
+  color?:
     | "red"
     | "blue"
     | "green"
