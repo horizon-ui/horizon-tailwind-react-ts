@@ -1,7 +1,8 @@
 {
-  "name": "horizon-ui-tailwind-react-ts",
+  "name": "horizon-tailwind-react-ts",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://horizon-ui.com/horizon-tailwind-react-ts",
   "dependencies": {
     "@chakra-ui/hooks": "^2.1.4",
     "@chakra-ui/modal": "^2.2.9",
