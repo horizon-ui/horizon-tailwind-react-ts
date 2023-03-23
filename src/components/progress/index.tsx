@@ -1,6 +1,6 @@
 const Progress = (props: {
   value: number;
-  ccolor?:
+  color?:
     | "red"
     | "blue"
     | "green"
