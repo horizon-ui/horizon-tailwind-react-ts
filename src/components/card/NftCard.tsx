@@ -21,14 +21,14 @@ const NftCard = (props: {
         <div className="relative w-full">
           <img
             src={image}
-            className="mb-3 h-full w-full rounded-xl 3xl:h-full 3xl:w-full"
+            className="mb-3 h-full w-full rounded-md 3xl:h-full 3xl:w-full"
             alt=""
           />
           <button
             onClick={() => setHeart(!heart)}
-            className="absolute top-3 right-3 flex items-center justify-center rounded-full bg-white p-2 text-brand-500 hover:cursor-pointer"
+            className="absolute right-3 top-3 flex items-center justify-center rounded-md bg-white p-2 text-brand-500 hover:cursor-pointer"
           >
-            <div className="flex h-full w-full items-center justify-center rounded-full text-xl hover:bg-gray-50 dark:text-navy-900">
+            <div className="flex h-full w-full items-center justify-center rounded-md text-xl hover:bg-gray-50 dark:text-navy-900">
               {heart ? (
                 <IoHeartOutline />
               ) : (
@@ -50,13 +50,13 @@ const NftCard = (props: {
           </div>
 
           <div className="flex flex-row-reverse md:mt-2 lg:mt-0">
-            <span className="z-0 ml-px inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-[#E0E5F2] text-xs text-navy-700 dark:!border-navy-800 dark:bg-gray-800 dark:text-white">
+            <span className="z-0 ml-px inline-flex h-8 w-8 items-center justify-center rounded-full border border-white bg-[#E0E5F2] text-xs text-navy-700 dark:!border-navy-800 dark:bg-gray-800 dark:text-white">
               +5
             </span>
             {bidders.map((avt, key) => (
               <span
                 key={key}
-                className="z-10 -mr-3 h-8 w-8 rounded-full border-2 border-white dark:!border-navy-800"
+                className="z-10 -mr-3 h-8 w-8 rounded-full border border-white dark:!border-navy-800"
               >
                 <img
                   className="h-full w-full rounded-full object-cover"
@@ -74,7 +74,7 @@ const NftCard = (props: {
               Current Bid: {price} <span>ETH</span>
             </p>
           </div>
-          <button className="linear rounded-[20px] bg-brand-900 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90">
+          <button className="linear rounded-md bg-brand-900 px-4 py-2 text-base font-medium text-white transition duration-200 hover:bg-brand-800 active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:opacity-90">
             Place Bid
           </button>
         </div>
